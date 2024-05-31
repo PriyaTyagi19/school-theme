@@ -32,15 +32,24 @@
 	<?php school_theme_post_thumbnail(); ?>
 
 	<div class="entry-content">
-	<div data-aos="fade-up">
+	
 		<?php
+		
 		if(is_single()){	
-				
+				?>
+				<div data-aos="fade-up">
+				<?php
 			the_content();
+			?>
+
+			</div>
+			<?php
 		} else {
 			the_excerpt();
 		}
+		?>
 
+<?php
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'school-theme' ),

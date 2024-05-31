@@ -15,7 +15,10 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
+?>
 
+<div data-aos="fade-up">
+<?php
 			get_template_part( 'template-parts/content', get_post_type() );
 
 			the_post_navigation(
