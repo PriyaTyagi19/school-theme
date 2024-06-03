@@ -37,7 +37,7 @@ get_header();
         <ul>
         <?php
         $recent_posts = new WP_Query(array(
-            'posts_per_page' => 3, // Limit to 3 posts
+            'posts_per_page' => 3,
             'post_status' => 'publish'
         ));
 
