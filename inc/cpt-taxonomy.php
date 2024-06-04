@@ -50,6 +50,50 @@ function school_register_custom_post_types() {
 
     register_post_type( 'staff', $args );
 
+    //Studdents
+
+    $labels = array(
+        'name'                  => _x( 'Students', 'post type general name' ),
+        'singular_name'         => _x( 'Student', 'post type singular name' ),
+        'menu_name'             => _x( 'Students', 'admin menu' ),
+        'name_admin_bar'        => _x( 'Student', 'add new on admin bar' ),
+        'add_new'               => _x( 'Add New', 'service'  ),
+        'add_new_item'          => __( 'Add New Student'  ),
+        'new_item'              => __( 'New Student' ),
+        'edit_item'             => __( 'Edit Student' ),
+        'view_item'             => __( 'View Student' ),
+        'all_items'             => __( 'All Students'  ),
+        'search_items'          => __( 'Search Students' ),
+        'parent_item_colon'     => __( 'Parent Students:' ),
+        'not_found'             => __( 'No Students found.' ),
+        'not_found_in_trash'    => __( 'No Students found in Trash.' ),
+        'insert_into_item'      => __( 'Insert into Student'),
+        'uploaded_to_this_item' => __( 'Uploaded to this Student'),
+    );
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_rest'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'students' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 21,
+        'menu_icon'          => 'dashicons-megaphone',
+        'supports'           => array( 'title', 'editor' ),
+        'template'           => array(
+            array( "core/paragraph", array("placeholder" => "Enter short biography here...") ),
+            array( "core/button",  array("text"=> "Portfolio", "url"=> "#") ),
+            
+        ),
+        'template_lock' => 'all',
+    );
+    register_post_type( 'students', $args );
+
 }
 add_action( 'init', 'school_register_custom_post_types' );
 

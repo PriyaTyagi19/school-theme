@@ -197,3 +197,26 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 * Custom Post Types & Taxonomies
 */
 require get_template_directory() . '/inc/cpt-taxonomy.php';
+
+// Function to change the placeholder text of staff cpt
+function change_staff_title_placeholder( $title ){
+    $screen = get_current_screen();
+    if  ( 'staff' == $screen->post_type ) {
+        $title = 'Add staff name';
+    }
+    return $title;
+}
+// Hook into the 'enter_title_here' filter
+add_filter( 'enter_title_here', 'change_staff_title_placeholder' );
+
+
+// Function to change the placeholder text of students cpt
+function change_students_title_placeholder( $title ){
+    $screen = get_current_screen();
+    if  ( 'students' == $screen->post_type ) {
+        $title = 'Add Student name';
+    }
+    return $title;
+}
+// Hook into the 'enter_title_here' filter
+add_filter( 'enter_title_here', 'change_students_title_placeholder' );
