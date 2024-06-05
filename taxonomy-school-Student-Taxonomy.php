@@ -29,15 +29,16 @@ get_header();
 				<article>
 				<a href= "<?php the_permalink(); ?>">
 					<h2><?php the_title(); ?></h2>
-					<p><?php the_content();?></p>
+					</a>
 					<?php
                     // Display featured image at 200x300 size
                     if ( has_post_thumbnail() ) {
                         the_post_thumbnail( 'image-size' );
                     }
                     ?>
+					<p><?php the_content();?></p>
 
-				</a>
+				
 			</article>
 <?php
 			endwhile;

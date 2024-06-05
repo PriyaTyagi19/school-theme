@@ -22,6 +22,16 @@ get_header();
 			</header><!-- .page-header -->
 
 			<?php
+
+			// Custom query to retrieve all students
+			$args = array(
+				'post_type'      => 'students', 
+				'posts_per_page' => -1, // Retrieve all posts
+				'orderby'        => 'title', // Order by student name
+				'order'          => 'ASC', // in ascending order
+			);
+			$query = new WP_Query( $args );
+			
 			 while ( have_posts() ) :
 				the_post();
 	
@@ -36,7 +46,7 @@ get_header();
 						<?php
 							// Display featured image
 							if ( has_post_thumbnail() ) {
-								the_post_thumbnail( 'medium', array( 'class' => 'thumbnail' ) );
+								the_post_thumbnail( 'image-size');
 							}
 						
 						?>

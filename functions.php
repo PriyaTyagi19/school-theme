@@ -47,12 +47,13 @@ function school_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Custom Image Crop Sizes
-	add_image_size( 'image-size', 200, 250, true );
+	add_image_size( 'image-size', 200, 300, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'school-theme' ),
+			'footer-right' => esc_html__( 'Footer - Right Side', 'school-theme' ),
 		)
 	);
 

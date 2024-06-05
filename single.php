@@ -17,7 +17,6 @@ get_header();
 			the_post();
 ?>
 
-<div data-aos="fade-up">
 <?php
 			get_template_part( 'template-parts/content', get_post_type() );
 
