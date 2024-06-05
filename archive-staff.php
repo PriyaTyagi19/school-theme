@@ -1,14 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
- * 
- * 
- 
- 
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -20,11 +12,16 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-	<?php
-	 while ( have_posts() ) :
-		the_post();
-		// get_template_part( 'template-parts/content', 'page' );
+		<?php if ( have_posts() ) : ?>
 
+			<header class="page-header">
+				<?php
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="archive-description">', '</div>' );
+				?>
+			</header><!-- .page-header -->
+
+			<?php
 			   $terms = get_terms( 
 				array(
 					'taxonomy' => 'school-Staff-Taxonomy',
@@ -78,9 +75,18 @@ get_header();
 					}
 				}
 			}
+			?>
+
+
+
 			
 
-		endwhile; // End of the loop.
+<?php
+		else :
+
+			get_template_part( 'template-parts/content', 'none' );
+
+		endif;
 		?>
 
 	</main><!-- #main -->

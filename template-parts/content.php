@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article  data-aos="fade-up" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -37,7 +37,7 @@
 		
 		if(is_single()){	
 				?>
-				<div data-aos="fade-up">
+				<div>
 					<?php
 			the_content();
 			?>
@@ -45,7 +45,7 @@
 </div>
 <?php
 		} else {
-			?><div data-aos="fade-up"><?php
+			?><div><?php
 			the_excerpt();
 			?></div><?php
 		}

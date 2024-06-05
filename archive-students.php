@@ -27,8 +27,8 @@ get_header();
 			$args = array(
 				'post_type'      => 'students', 
 				'posts_per_page' => -1, // Retrieve all posts
-				'orderby'        => 'title', // Order by student name
-				'order'          => 'ASC', // in ascending order
+				'orderby' => 'title',
+				'order' => 'ASC',
 			);
 			$query = new WP_Query( $args );
 			

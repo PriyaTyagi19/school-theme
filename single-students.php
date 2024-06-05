@@ -15,12 +15,13 @@ get_header();
 	<?php
 		while ( have_posts() ) :
 			the_post();
+			$curren_post_id = get_the_ID(); // Store the current post's ID
 
 			// get_template_part( 'template-parts/content', get_post_type() );
 
 			?>
 
-			<article id="post-<?php the_ID(); ?>">
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<h1><?php the_title(); ?></h1>
 				<?php the_post_thumbnail('image-size'); ?>
 				<p><?php the_content();?></p>
@@ -29,21 +30,17 @@ get_header();
 			<article>
 			<?php
             // Retrieve terms of the taxonomy attached to the post
-			$terms = get_the_terms(get_the_ID(), 'student-taxonomy');
-			if( $terms && ! is_wp_error( $terms )) :
+			$terms = wp_get_post_terms($curren_post_id, 'student-taxonomy');
+			if( $terms && !is_wp_error( $terms )) :
 
-			?>
-			<h3>Meet other <?php ($terms); ?>students:</h3>
-			<ul>
-			<?php
 				// Loop through each term and display links to other students in the same category
 				foreach ( $terms as $term ) {
 					$term_args = array(
 						'post_type'      => 'students', 
-						'posts_per_page' => 2, 
+						'posts_per_page' => -1, 
 						'tax_query'      => array(
 							array(
-								'taxonomy' => 'student-taxonomy', // Replace 'student_category' with your taxonomy slug
+								'taxonomy' => 'student-taxonomy', 
 								'field'    => 'slug',
 								'terms'    => $term->slug,
 							),
@@ -51,7 +48,14 @@ get_header();
 					);
 					$term_query = new WP_Query( $term_args );
 					if ( $term_query->have_posts() ) :
+			?>
+			<h3>Meet other <?php echo esc_html($terms->name); ?>students:</h3>
+			<ul>
+			<?php
 						while ( $term_query->have_posts() ) : $term_query->the_post();
+							if (get_the_ID() == $curren_post_id) {
+								continue;
+							}
 							?>
 							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 							<?php
