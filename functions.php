@@ -225,3 +225,6 @@ function change_students_title_placeholder( $title ){
 }
 // Hook into the 'enter_title_here' filter
 add_filter( 'enter_title_here', 'change_students_title_placeholder' );
+
+// Wide and full width in block editor
+add_theme_support( 'align-wide' );
