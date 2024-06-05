@@ -33,7 +33,7 @@ get_header();
 			if( $terms && ! is_wp_error( $terms )) :
 
 			?>
-			<h3>Meet other <?php foreach ($terms as $term) echo $term->name; ?> students:</h3>
+			<h3>Meet other <?php ($terms); ?>students:</h3>
 			<ul>
 			<?php
 				// Loop through each term and display links to other students in the same category
