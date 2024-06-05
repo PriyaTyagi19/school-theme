@@ -38,14 +38,16 @@
 		if(is_single()){	
 				?>
 				<div data-aos="fade-up">
-				<?php
+					<?php
 			the_content();
 			?>
 
-			</div>
-			<?php
+</div>
+<?php
 		} else {
+			?><div data-aos="fade-up"><?php
 			the_excerpt();
+			?></div><?php
 		}
 		?>
 

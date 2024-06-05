@@ -46,6 +46,9 @@ function school_theme_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
+	// Custom Image Crop Sizes
+	add_image_size( 'image-size', 200, 250, true );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
@@ -147,19 +150,19 @@ function school_theme_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if (is_singular('post')) {
+	if (is_archive()) {
 		wp_enqueue_style(
 			'aos-styles', //unique handle
 			get_template_directory_uri(). '/css/aos.css',
 			array(),
-			'2.3.2'
+			'2.3.2', false
 		);
 		wp_enqueue_script(
 			'aos-scripts', //unique handle
 			get_template_directory_uri(). '/js/aos.js',
 			array(),
 			'2.3.2',
-			array( 'strategy' => 'defer' )
+			true
 		);
 		wp_add_inline_script( 'aos-js', 'AOS.init();' );
 }

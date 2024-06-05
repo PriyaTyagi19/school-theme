@@ -145,7 +145,7 @@ function school_register_taxonomies() {
         'parent_item'       => __( 'Parent Student Taxonomy' ),
         'parent_item_colon' => __( 'Parent Student Taxonomy:' ),
         'edit_item'         => __( 'Edit Student Taxonomy' ),
-        'view_item'         => __( 'Vview Student Taxonomy' ),
+        'view_item'         => __( 'View Student Taxonomy' ),
         'update_item'       => __( 'Update Student Taxonomy' ),
         'add_new_item'      => __( 'Add New Student Taxonomy' ),
         'new_item_name'     => __( 'New Student Taxonomy Name' ),
