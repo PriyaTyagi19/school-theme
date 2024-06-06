@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main page-schedule">
 
     <?php
     while ( have_posts() ) :
@@ -33,7 +33,7 @@ get_header(); ?>
                 // https://www.advancedcustomfields.com/resources/repeater/
                 if( have_rows('schedule') ): ?>
                     <h2>Weekly Course Schedule</h2>
-                    <table>
+                    <table class="schedule-table">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -67,11 +67,10 @@ get_header(); ?>
         </article> <?php the_ID(); ?>
 
     <?php
-    endwhile; // End of the loop.
+    endwhile;
     ?>
 
 </main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

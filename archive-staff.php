@@ -43,30 +43,28 @@ get_header();
 					);
 					$query = new WP_Query( $args );
 					if( $query -> have_posts() ) {
-						echo'<section><h2>' . esc_html__($term->name) . '</h2>';
+						echo'<section class="staff-section"><h2 class="staff-category">' . esc_html__($term->name) . '</h2>';
 						while ( $query -> have_posts() ) {
 							$query -> the_post();
 							?>
-							<article>
-									<h2><?php esc_html(the_title()); ?></h2>
+							<article class="staff-member">
+									<h3 class="staff-name"><?php esc_html(the_title()); ?></h3>
+									<div class="staff-details">
 									<?php
 									if ( function_exists( 'get_field' ) ) {
 										if ( get_field( 'staff_biography' ) ) {
-											
-											the_field( 'staff_biography' );
+											echo '<p>' . esc_html(get_field( 'staff_biography' )) . '</p>';
 										}
 										if ( get_field( 'course' ) ) {
-											
-											the_field( 'course' );
+											echo '<p>' . esc_html(get_field( 'course' )) . '</p>';
 										}
 										if ( get_field( 'instructor_website' ) ) {
-											
-											the_field( 'instructor_website' );
+											echo '<p><a href="' . esc_url(get_field( 'instructor_website' )) . '" target="_blank">' . esc_html(get_field( 'instructor_website' )) . '</a></p>';
 										}
-										}
-										?>
-						  
-						</article>
+									}
+									?>
+									</div>
+							</article>
 						
 							<?php
 						}
@@ -76,10 +74,6 @@ get_header();
 				}
 			}
 			?>
-
-
-
-			
 
 <?php
 		else :
@@ -92,5 +86,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

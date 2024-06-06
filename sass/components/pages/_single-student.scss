@@ -1,0 +1,60 @@
+.single-student {
+    background-color: $color__background-screen;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  
+    h1 {
+      font-family: $font-family;
+      color: $color__text-main;
+      font-size: 2rem;
+
+      margin-bottom: 20px;
+    }
+  
+    .post-thumbnail {
+      margin-bottom: 20px;
+      img {
+        max-width: 100%;
+        border-radius: 5px;
+      }
+    }
+  
+    p {
+
+      font-family: $font-family;
+      color: $color__text-main;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      max-width: 800px;
+
+    }
+  
+    h3 {
+      font-family: $font-family;
+      color: $color__text-main;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin-bottom: 10px;
+        a {
+          color: $color__link;
+          text-decoration: none;
+          &:hover {
+       
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  

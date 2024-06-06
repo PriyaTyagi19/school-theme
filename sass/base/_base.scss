@@ -18,3 +18,47 @@
 --------------------------------------------- */
 @import "elements/buttons";
 @import "elements/fields";
+
+// Import necessary global variables and mixins
+@import '../abstracts/variables/colors';
+@import '../abstracts/variables/typography';
+
+body {
+    font-family: $font-family;
+    color: $color__text-main;
+    line-height: 1.6;
+    background-color: $color__background-screen;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font-family: $font-family;
+  color: $color__text-main;
+  line-height: 1.6;
+  background-color: $color__background-screen;
+  margin: 0;
+  padding: 0;
+}
+
+p,
+h1, h2, h3, h4, h5, h6 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+
+  @media (max-width: 1200px) {
+      padding-left: 5rem;
+      padding-right: 5rem;
+  }
+
+  @media (max-width: 800px) {
+      padding-left: 3rem;
+      padding-right: 3rem;
+  }
+
+  @media (max-width: 600px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+  }
+}
+

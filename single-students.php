@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main single-student">
 
 	<?php
 		while ( have_posts() ) :
@@ -23,9 +23,11 @@ get_header();
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<h1><?php the_title(); ?></h1>
-				<?php the_post_thumbnail('image-size'); ?>
+				<div class="post-thumbnail">
+					<?php the_post_thumbnail('image-size'); ?>
+				</div>
 				<p><?php the_content();?></p>
-			</arcticle>
+			</article>
 
 			<article>
 			<?php
@@ -49,7 +51,7 @@ get_header();
 					$term_query = new WP_Query( $term_args );
 					if ( $term_query->have_posts() ) :
 			?>
-			<h3>Meet other <?php echo esc_html($terms->name); ?>students:</h3>
+			<h3>Meet other <?php echo esc_html($term->name); ?> students:</h3>
 			<ul>
 			<?php
 						while ( $term_query->have_posts() ) : $term_query->the_post();
@@ -77,5 +79,5 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
+?>
