@@ -31,15 +31,16 @@ get_header();
 				'order' => 'ASC',
 			);
 			$query = new WP_Query( $args );
-			
-			 while ( have_posts() ) :
-				the_post();
+			if ( $query -> have_posts() ) {
+
+			 while ( $query -> have_posts() ) :
+				$query -> the_post();
 	
 				// Display student content
 			?>
 				<article>
 					
-						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<h2><a href="<?php the_permalink(); ?>"><?php esc_html(the_title()); ?></a></h2>
 					
 	
 					<div>
@@ -51,6 +52,7 @@ get_header();
 						
 						?>
 					</div>
+			
 	
 					<div>
 						<?php
@@ -81,10 +83,13 @@ get_header();
 			
  <?php
         endwhile;
+		wp_reset_postdata();
+	}
 
         the_posts_navigation();
 
-    else :
+			
+			else :
 
         get_template_part( 'template-parts/content', 'none' );
 
@@ -94,5 +99,5 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+
 get_footer();

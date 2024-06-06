@@ -153,13 +153,13 @@ function school_theme_scripts() {
 
 	if (get_post_type() === 'post') {
         // Enqueue your scripts and styles here for single posts of the 'post' type
-        wp_enqueue_script('fwd-school-animation', get_template_directory_uri() . '/js/aos.js', array(), _S_VERSION, array(
+        wp_enqueue_script('school-animation', get_template_directory_uri() . '/js/aos.js', array(), _S_VERSION, array(
             'strategy'  => 'defer'
         ));
-        wp_enqueue_script('fwd-school-animation-init', get_template_directory_uri() . '/js/aos-init.js', array('fwd-school-animation'), _S_VERSION, array(
+        wp_enqueue_script('school-animation-init', get_template_directory_uri() . '/js/aos-init.js', array('school-animation'), _S_VERSION, array(
             'strategy'  => 'defer'
         ));
-        wp_enqueue_style('fwd-school-animation-style', get_template_directory_uri() . '/css/aos.css', array(), _S_VERSION, 'all');
+        wp_enqueue_style('school-animation-style', get_template_directory_uri() . '/css/aos.css', array(), _S_VERSION, 'all');
     }
 
 

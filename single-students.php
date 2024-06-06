@@ -43,6 +43,7 @@ while ( have_posts() ) :
                         'taxonomy' => 'school-Student-Taxonomy', 
                         'field'    => 'slug',
                         'terms'    => $term->slug,
+                        'title' => $term['title']
                     ),
                 ),
                 'post__not_in'   => array( $current_post_id ), // Exclude the current student
@@ -55,7 +56,7 @@ while ( have_posts() ) :
     <?php
                 while ( $term_query->have_posts() ) : $term_query->the_post();
                     ?>
-                    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+                    <li><a href="<?php the_permalink(); ?>"><?php esc_html(the_title()); ?></a></li>
                     <?php
                 endwhile;
             endif;
@@ -75,5 +76,5 @@ endwhile; // End of the loop.
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+
 get_footer();
