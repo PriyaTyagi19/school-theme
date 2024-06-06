@@ -41,11 +41,11 @@ function school_register_custom_post_types() {
         'query_var'          => true,
         'rewrite'            => array( 'slug' => 'staff' ),
         'capability_type'    => 'post',
-        'has_archive'        => true,
+        'has_archive'        => false,
         'hierarchical'       => false,
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-archive',
-        'supports'           => array( 'title' ),
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
     );
 
     register_post_type( 'staff', $args );
@@ -131,7 +131,7 @@ function school_register_taxonomies() {
         'show_in_rest'      => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'Staff-Taxonomy' ),
+        'rewrite'           => array( 'slug' => 'staff-taxonomy' ),
     );
     register_taxonomy( 'school-Staff-Taxonomy', array( 'staff' ), $args );
 
