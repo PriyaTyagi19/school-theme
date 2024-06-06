@@ -223,3 +223,11 @@ add_filter( 'enter_title_here', 'change_students_title_placeholder' );
 
 // Wide and full width in block editor
 add_theme_support( 'align-wide' );
+
+// Add terms to the custom taxonomy
+// function add_student_taxonomy_terms() {
+//     wp_insert_term( 'Designer', 'student_category' );
+//     wp_insert_term( 'Developer', 'student_category' );
+// }
+// add_action( 'after_setup_theme', 'add_student_taxonomy_terms' );
+
