@@ -1,0 +1,50 @@
+.page-schedule {
+    background-color: $color__background-screen;
+    padding: 20px;
+
+  
+    h2 {
+      font-family: $font-family;
+      color: $color__text-main;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+  
+    p {
+      font-family: $font-family;
+      color: $color__text-main;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+
+    }
+  
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th,
+      td {
+
+        font-family: $font-family;
+        color: $color__text-main;
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+
+      }
+  
+      th {
+        background-color: #2980b9;
+        color: $color__text-header;
+        font-weight: bold;
+      }
+  
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+        
+      }
+    }
+  }
+  
