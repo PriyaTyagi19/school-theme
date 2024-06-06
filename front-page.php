@@ -61,7 +61,7 @@ get_header();
             ?>
             <li><?php esc_html_e( 'There are no posts available.', 'school-theme' ); ?></li>
             <?php
-        endif;
+       
         ?>
 
         </ul>
@@ -72,9 +72,6 @@ get_header();
 </main>
 
 <?php
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/main
+endif;
 get_footer();
 ?>

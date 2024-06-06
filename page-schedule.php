@@ -73,8 +73,5 @@ get_header(); ?>
 </main><!-- #main -->
 
 <?php
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/main
 get_footer();
