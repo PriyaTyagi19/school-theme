@@ -163,12 +163,7 @@ function school_register_taxonomies() {
         'rewrite'           => array( 'slug' => 'student-taxonomy' ),
     );
     register_taxonomy( 'school-Student-Taxonomy', array( 'students' ), $args );
-    if (!term_exists('Designer', 'school-Student-Taxonomy')) {
-        wp_insert_term('Designer', 'school-Student-Taxonomy');
-    }
-    if (!term_exists('Developer', 'school-Student-Taxonomy')) {
-        wp_insert_term('Developer', 'school-Student-Taxonomy');
-    }
+   
 }
 add_action( 'init', 'school_register_taxonomies');
 

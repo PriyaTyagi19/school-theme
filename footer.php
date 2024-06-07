@@ -22,6 +22,7 @@
 		</div><!-- .site-info -->
 		<div class="footer-logo">
 			<?php
+			the_custom_logo();
 			$custom_logo_id = get_theme_mod( 'custom-logo' );
 			$logo_url = esc_url( home_url( '/' ) ); // Link to homepage
 			if ( $custom_logo_id ) {

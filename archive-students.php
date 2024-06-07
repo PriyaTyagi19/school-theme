@@ -12,8 +12,16 @@ get_header();
 
 <main id="primary" class="site-main archive-page">
 
+<?php if ( have_posts() ) : ?>
 
-    <?php if ( have_posts() ) : ?>
+    <header class="page-header">
+        
+        <?php
+        echo '<h1>The Class</h1>';
+        // the_archive_title( '<h1 class="page-title">', '</h1>' );
+        the_archive_description( '<div class="archive-description">', '</div>' );
+        ?>
+    </header><!-- .page-header -->
 
         <header class="page-header">
             <?php
