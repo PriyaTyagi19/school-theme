@@ -10,17 +10,19 @@
 get_header();
 ?>
 
-    <main id="primary" class="site-main archive-page">
+<main id="primary" class="site-main archive-page">
 
-        <?php if ( have_posts() ) : ?>
 
-            <header class="page-header">
-                <?php
-                the_archive_title( '<h1 class="page-title">', '</h1>' );
-                the_archive_description( '<div class="archive-description">', '</div>' );
-                ?>
-            </header><!-- .page-header -->
+    <?php if ( have_posts() ) : ?>
 
+        <header class="page-header">
+            <?php
+            the_archive_title( '<h1 class="page-title">', '</h1>' );
+            the_archive_description( '<div class="archive-description">', '</div>' );
+            ?>
+        </header><!-- .page-header -->
+
+        <div class="student-list">
             <?php
             // Custom query to retrieve all students
             $args = array(
@@ -36,65 +38,72 @@ get_header();
                 while ( $query -> have_posts() ) :
                    $query -> the_post();
     
-                // Display student content
+
             ?>
-                <div class="student-list">
-                    <article class="student-item">
-                        
-                        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                <article class="student-item">
                     
-                        <div class="student-image">
-                            <?php
-                            // Display featured image
-                            if ( has_post_thumbnail() ) {
-                                the_post_thumbnail( 'image-size');
-                            }
-                            ?>
-                        </div>
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                
+                    <div class="student-image">
+                        <?php
+                        if ( has_post_thumbnail() ) {
+                            the_post_thumbnail( 'image-size');
+                        }
+                        ?>
+                    </div>
     
-                        <div class="student-excerpt">
-                            <?php
-                            // Display excerpt wth custom length
-                            if ( is_archive() ) {
-                                echo wp_trim_words( get_the_excerpt(), 25 );
-                                echo '<p><a class="read-more" href="' . get_permalink() . '">Read More about the Student</a></p>';
-                            } else {
-                                the_content();
-                            }
-                            ?>
-                        </div>
+                    <div class="student-excerpt">
+                        <?php
+                        // Display excerpt with custom length
+                        if ( is_archive() ) {
+                            echo wp_trim_words( get_the_excerpt(), 25 );
+                            echo '<p><a class="read-more" href="' . get_permalink() . '">Read More about the Student</a></p>';
+                        } else {
+                            the_content();
+                        }
 
-                        <div class="student-speciality">
-                            <?php
-                            // Display taxonomy terms
-                            $terms = get_the_terms( get_the_ID(), 'school-Student-Taxonomy' ); 
-                            if ( $terms && ! is_wp_error( $terms ) ) {
-                                echo '<div>';
-                                foreach ( $terms as $term ) {
-                                    echo "<p>Speciality:</p>";
-                                    echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> ';
-                                }
-                                echo '</div>';
+                        ?>
+
+                    </div>
+
+
+                    <div class="student-speciality">
+                        <?php
+                        // Display taxonomy terms
+                        $terms = get_the_terms( get_the_ID(), 'school-Student-Taxonomy' ); 
+                        if ( $terms && ! is_wp_error( $terms ) ) {
+                            echo '<div>';
+                            foreach ( $terms as $term ) {
+                                echo "<p>Speciality:</p>";
+                                echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> ';
                             }
-                            ?>
-                        </div>
-                    </article> 
+                            echo '</div>';
+
+                        }
+                        ?>
                 </div>
+
+                </article> 
             
+
             <?php
-            endwhile;
-            wp_reset_postdata();
-        }
-            the_posts_navigation();
+                endwhile;
+                wp_reset_postdata();
+            }
+            ?>
+        </div>
 
-        else :
+        <?php
+        the_posts_navigation();
 
-            get_template_part( 'template-parts/content', 'none' );
+    else :
 
-        endif;
-        ?>
+        get_template_part( 'template-parts/content', 'none' );
 
-    </main><!-- #main -->
+    endif;
+    ?>
+
+</main><!-- #main -->
 
 <?php
 get_footer();

@@ -27,9 +27,11 @@ get_header();
 					<?php the_post_thumbnail('image-size'); ?>
 				</div>
 				<?php the_content();?>
+
 			</article>
             <article>
             <?php
+
             // Retrieve terms of the taxonomy attached to the post
 			$terms = wp_get_post_terms($current_post_id, 'school-Student-Taxonomy');
 			if( $terms && !is_wp_error( $terms )) :
@@ -56,6 +58,7 @@ get_header();
     <h3>Meet other <?php echo esc_html($term->name); ?> students:</h3>
     <ul>
     <?php
+
                 while ( $term_query->have_posts() ) : $term_query->the_post();
                     ?>
                     <li><a href="<?php the_permalink(); ?>"><?php esc_html(the_title()); ?></a></li>
@@ -74,6 +77,7 @@ endwhile; // End of the loop.
 
 	</main><!-- #main -->
 
+    
 <?php
 get_footer();
 ?>
